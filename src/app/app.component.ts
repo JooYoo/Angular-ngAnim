@@ -7,18 +7,18 @@ import { flipInY, bounce } from 'ng-animate';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
   animations:[
-    trigger('popOverState',[
+    trigger('FlipAnim',[
 
-      state('show',style({
+      state('goFlip',style({
        transform:' rotateY(180deg)'
       })),
 
-      state('hide',style({
-       transform: 'rotateY(0)'
+      state('goBack',style({
+       transform: 'rotateY(0deg)'
       })),
 
-      transition('show => hide', animate('300ms ease-out')),
-      transition('hide => show', animate('400ms ease-in'))
+      transition('goFlip => goBack', animate('300ms ease-out')),
+      transition('goBack => goFlip', animate('400ms ease-in'))
       
       // transition('*=>*',
       // useAnimation(bounce))
@@ -26,19 +26,17 @@ import { flipInY, bounce } from 'ng-animate';
   ]
 })
 export class AppComponent {
+  
   title = 'ngAnim';
   
-  show:boolean =false;
-  
+  isFlip:boolean =false;
   
    get stateName() {
-    return this.show? 'show' : 'hide'
+    return this.isFlip? 'goFlip' : 'goBack'
   }
-  
 
-  animateMe(){
-    console.log("clicked")
-    this.show = !this.show
+    animateMe(){
+    this.isFlip = !this.isFlip
   }
 
 }
