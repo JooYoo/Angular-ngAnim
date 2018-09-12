@@ -7,36 +7,31 @@ import { flipInY, bounce } from 'ng-animate';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
   animations:[
-    trigger('FlipAnim',[
+   
+    trigger('FlipAnim', [
 
-      state('goFlip',style({
-       transform:' rotateY(180deg)'
+      state('goFlip', style({
+        transform: 'rotateY(180deg)'
       })),
 
-      state('goBack',style({
-       transform: 'rotateY(0deg)'
+      state('goBack', style({
+        transform: 'rotateY(0)'
       })),
 
-      transition('goFlip => goBack', animate('300ms ease-out')),
+      transition('goFlip => goBack', animate('200ms ease-out')),
       transition('goBack => goFlip', animate('400ms ease-in'))
-      
-      // transition('*=>*',
-      // useAnimation(bounce))
-    ])
+    ]) 
   ]
 })
 export class AppComponent {
   
   title = 'ngAnim';
-  
-  isFlip:boolean =false;
-  
-   get stateName() {
-    return this.isFlip? 'goFlip' : 'goBack'
-  }
 
-    animateMe(){
-    this.isFlip = !this.isFlip
+  isFlip: string = 'goBack';
+  constructor() {}
+  
+  toggleFlip() {
+    this.isFlip = (this.isFlip == 'goBack') ? 'goFlip' : 'goBack';
   }
 
 }
