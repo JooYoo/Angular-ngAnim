@@ -28,7 +28,7 @@ export class AppComponent {
   title = 'ngAnim';
 
   isFlip: string = 'goBack';
-  constructor() {}
+ 
   
   toggleFlip() {
     this.isFlip = (this.isFlip == 'goBack') ? 'goFlip' : 'goBack';

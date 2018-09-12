@@ -1,11 +1,15 @@
-<div class="tp-wrapper">
-  <div class="tp-box" (click)="toggleFlip()" [@FlipAnim]="isFlip">
+<div class="fp-wrapper">
 
-    <div class="tp-box__side tp-box__front">Question
+  <div class="fp-card" (click)="toggleFlip()" [@FlipAnim]="isFlip">
+
+    <div class="fp-text fp-front">
+      Question
     </div>
 
-    <div class="tp-box__side tp-box__back">answer
+    <div class="fp-text fp-back">
+      answer
     </div>
 
   </div>
+
 </div>
