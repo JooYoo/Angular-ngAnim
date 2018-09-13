@@ -1,6 +1,16 @@
 <div class="fp-wrapper">
 
-  <div class="fp-card" (click)="toggleFlip()" [@FlipAnim]="isFlip">
+  <div class="fp-card" 
+            (click)="toggleFlip()" 
+            [@FlipAnim]="isFlip"
+
+            [@cardAnimator]="animationState" 
+            (@cardAnimator.done)="resetAnimationState()"
+            (swiperight)="startAnimation('zoomOutRight')"
+            (swipeleft)="startAnimation('zoomOutLeft')"
+
+            (swipeup)="startAnimation('rotateOutUpRight')"
+            (swipedown)="startAnimation('flipOutY')">
 
     <div class="fp-text fp-front">
       Question
